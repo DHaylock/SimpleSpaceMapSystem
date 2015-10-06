@@ -3,8 +3,14 @@
 #include "ofMain.h"
 #include "ofxXmlSettings.h"
 
-class polys {
+
+class Poly {
 public:
+
+    //--------------------------------------------------------------
+    Poly() {
+        lineSize = 5;
+    }
     //--------------------------------------------------------------
     void addID(int pid) {
         _id = pid;
@@ -26,9 +32,13 @@ public:
         fill = _fill;
     }
     //--------------------------------------------------------------
+    void setLineSize(int _lineSize) {
+        lineSize = _lineSize;
+    }
+    //--------------------------------------------------------------
     void draw(){
         ofPushStyle();
-        ofSetLineWidth(5);
+        ofSetLineWidth(lineSize);
         if (fill) {
             ofFill();
         }
@@ -67,43 +77,49 @@ protected:
     int _id;
 };
 
+//--------------------------------------------------------------
 class ofApp : public ofBaseApp{
-
-	public:
-		void setup();
-		void update();
-		void draw();
-
-		void keyPressed(int key);
-		void keyReleased(int key);
-		void mouseMoved(int x, int y );
-		void mouseDragged(int x, int y, int button);
-		void mousePressed(int x, int y, int button);
-		void mouseReleased(int x, int y, int button);
-		void windowResized(int w, int h);
-		void dragEvent(ofDragInfo dragInfo);
-		void gotMessage(ofMessage msg);
-		
-        // Silly Line objects
-        vector<polys> lines;
     
-        // Silly Lines
-        polys p;
+public:
+    void setup();
+    void update();
+    void draw();
     
-        // Buttons
-        ofRectangle save;
-        ofRectangle clear;
-        ofRectangle clearAll;
-        ofRectangle invert;
-        ofRectangle fillPolygon;
-        ofRectangle nextPoly;
+    void keyPressed(int key);
+    void keyReleased(int key);
+    void mouseMoved(int x, int y );
+    void mouseDragged(int x, int y, int button);
+    void mousePressed(int x, int y, int button);
+    void mouseReleased(int x, int y, int button);
+    void windowResized(int w, int h);
+    void dragEvent(ofDragInfo dragInfo);
+    void gotMessage(ofMessage msg);
     
-        bool invertcolor;
-        bool fillpoly;
-        int counter;
     
-        int lastTagNumber;
+    void makeButtons();
     
-            ofxXmlSettings xml;
+    // Silly Line objects
+    vector<Poly> lines;
+    
+    // Silly Lines
+    Poly p;
+    
+    // Buttons
+    ofRectangle save;
+    ofRectangle clear;
+    ofRectangle clearAll;
+    ofRectangle invert;
+    ofRectangle fillPolygon;
+    ofRectangle nextPoly;
+    ofRectangle increaseLineSize;
+    ofRectangle decreaseLineSize;
+    
+    bool invertcolor;
+    bool fillpoly;
+    int counter;
+    int lineSize;
+    int lastTagNumber;
+    
+    ofxXmlSettings xml;
 };
 
