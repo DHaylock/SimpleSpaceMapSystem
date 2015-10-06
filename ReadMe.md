@@ -2,7 +2,7 @@ Super Simple Space Mapper
 ===
 
 ####Introduction
-This app was developed for the (Playable City Award 2015 Urbanimals)[http://www.watershed.co.uk/playablecity/winner/2015].
+This app was developed for the [Playable City Award 2015 Urbanimals](http://www.watershed.co.uk/playablecity/winner/2015).
 
 It allows users to very simply map the projectors view, it might seem simplistic, but when the projector is rigged 5 - 10 meters up with no physical access to the computer - keeping it simple is key.
 
